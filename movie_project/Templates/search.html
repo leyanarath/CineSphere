@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+		<section class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="breadcrumb-area-content">
+							<h1>Movies Page</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!-- breadcrumb area end -->
+		<!-- portfolio section start -->
+		<section class="portfolio-area pt-60">
+			<div class="container">
+				<div class="row flexbox-center">
+					<div class="col-lg-12 text-center text-lg-left">
+					    <div class="section-title ">
+							<h1><i class="icofont icofont-movie"></i> Result For {{query}}</h1>
+						</div>
+					</div>
+
+				</div>
+				<hr />
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="row portfolio-item">
+							{% for movies in movie %}
+							<div class="col-md-4 col-sm-6 soon">
+								<!-- to add filter change soon .... -->
+								<div class="single-portfolio">
+									<div class="single-portfolio-img">
+										<img src="{{movies.image.url}}" alt="portfolio" />
+										<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+											<i class="icofont icofont-ui-play"></i>
+										</a>
+									</div>
+									<div class="portfolio-content">
+										<h2>{{movies.name}}</h2>
+										<div class="review">
+											<div class="author-review">
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+											</div>
+											<h4>{{movies.time}} Min</h4>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							<!-- <div class="col-md-4 col-sm-6 ">
+								<div class="single-portfolio">
+									<div class="single-portfolio-img">
+										<img src="assets/img/portfolio/portfolio2.png" alt="portfolio" />
+										<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+											<i class="icofont icofont-ui-play"></i>
+										</a>
+									</div>
+									<div class="portfolio-content">
+										<h2>Tale of Revemge</h2>
+										<div class="review">
+											<div class="author-review">
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+											</div>
+											<h4>180k voters</h4>
+										</div>
+									</div>
+								</div>
+							</div> -->
+							
+							
+							
+					
+						</div>
+					</div>
+					<!-- <div class="col-lg-3 text-center text-lg-left">
+					    <div class="portfolio-sidebar">
+							<img src="assets/img/sidebar/sidebar1.png" alt="sidebar" />
+							<img src="assets/img/sidebar/sidebar2.png" alt="sidebar" />
+							<img src="assets/img/sidebar/sidebar3.png" alt="sidebar" />
+							<img src="assets/img/sidebar/sidebar4.png" alt="sidebar" />
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</section><!-- portfolio section end -->
+		<!-- video section start -->
+
+
+{% endblock %}

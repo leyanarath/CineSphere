@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!--	<body>-->
+		<!-- header start/end -->
+		<!-- hero area start -->
+
+		<section class="hero-area" id="home">
+			<div class="container">
+
+				<div class="hero-area-slider">
+					{% for movies in movies.object_list %}
+					<div class="row hero-area-slide">
+						<div class="col-lg-6 col-md-5">
+							<div class="hero-area-content">
+<!--								<img src="{% static 'img/slide2.png' %}" alt="about" />-->
+								<a href="{% url 'MovieDetails' movies.slug  %}" >
+								<img src="{{movies.image.url}}" alt="about" /></a>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-7">
+							<div class="hero-area-content pr-50">
+								<h2>{{movies.name}}</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<!-- <i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i> -->
+									</div>
+									<h4>180k voters</h4>
+								</div>
+								<p> {{movies.plot}} </p>
+								<h3>Cast:</h3>
+								<div class="slide-cast">
+										{% for actors in movies.actors.all %}
+										<div class="single-slide-cast">
+
+										<img src="{{ actors.image.url }}" alt="about" />
+										</div>
+										{% endfor %}
+
+									<div class="single-slide-cast text-center">
+										5+
+									</div>
+								</div>
+								<div class="slide-trailor">
+									<h3>Watch Trailer</h3>
+									<a class="theme-btn theme-btn2" href="{{ movies.trailer }}"><i class="icofont icofont-play"></i> Tickets</a>
+								</div>
+							</div>
+						</div>
+					</div>
+<!--				</div>-->
+					{% endfor %}
+
+					<div class="row hero-area-slide">
+						<div class="col-lg-6 col-md-5">
+							<div class="hero-area-content">
+								<img src="{% static 'img/slide3.png' %}" alt="about" />
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-7">
+							<div class="hero-area-content pr-50">
+								<h2>The Deer God</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<!-- <i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i> -->
+									</div>
+									<h4>180k voters</h4>
+								</div>
+								<p>She is a devil princess from the demon world. She grew up sheltered by her parents and doesn't really know how to be evil or any of the common actions,   She is unable to cry due to Keita's accidental first wish, despite needed for him to wish...</p>
+								<h3>Cast:</h3>
+								
+								<div class="slide-trailor">
+									<h3>Watch Trailer</h3>
+									<a class="theme-btn theme-btn2" href="#"><i class="icofont icofont-play"></i> Tickets</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hero-area-thumb">
+					<div class="thumb-prev">
+						<div class="row hero-area-slide">
+							<div class="col-lg-6">
+								<div class="hero-area-content">
+									<img src="{% static 'img/slide3.png' %}" alt="about" />
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="hero-area-content pr-50">
+									<h2>Last Avatar</h2>
+									<div class="review">
+										<div class="author-review">
+											<i class="icofont icofont-star"></i>
+											<i class="icofont icofont-star"></i>
+											<i class="icofont icofont-star"></i>
+											<i class="icofont icofont-star"></i>
+											<i class="icofont icofont-star"></i>
+										</div>
+										<h4>180k voters</h4>
+									</div>
+									<p>She is a devil princess from the demon world. She grew up sheltered by her parents and doesn't really know how to be evil or any of the common actions,   She is unable to cry due to Keita's accidental first wish, despite needed for him to wish...</p>
+									<h3>Cast:</h3>
+									
+									<div class="slide-trailor">
+										<h3>Watch Trailer</h3>
+										<a class="theme-btn theme-btn2" href="#"><i class="icofont icofont-play"></i> Tickets</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="thumb-next">
+						<div class="row hero-area-slide">
+							<div class="col-lg-6">
+								<div class="hero-area-content">
+									<img src="{% static 'img/slide1.png' %}" alt="about" />
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="hero-area-content pr-50">
+									<h2>The Deer God</h2>
+									<div class="review">
+										<div class="author-review">
+											<i class="icofont icofont-star"></i>
+											<i class="icofont icofont-star"></i>
+											<i class="icofont icofont-star"></i>
+											<i class="icofont icofont-star"></i>
+											<i class="icofont icofont-star"></i>
+										</div>
+										<h4>180k voters</h4>
+									</div>
+									<p>She is a devil princess from the demon world. She grew up sheltered by her parents and doesn't really know how to be evil or any of the common actions,   She is unable to cry due to Keita's accidental first wish, despite needed for him to wish...</p>
+									<h3>Cast:</h3>
+									<div class="slide-cast">
+										{% for actors in movies.actors.all %}
+										<div class="single-slide-cast">
+											<p>{{ actors.name }}kk</p>
+										<img src="{{ actors.image.url }}" alt="about" />
+										</div>
+										{% endfor %}
+										{% for author in movies.language.all %}
+                						<h2>{{ author.name }}</h2>
+                						{% endfor %}
+									<div class="single-slide-cast text-center">
+										5+
+									</div>
+								</div>
+									<div class="slide-trailor">
+										<h3>Watch Trailer</h3>
+										<a class="theme-btn theme-btn2" href="#"><i class="icofont icofont-play"></i> Tickets</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!-- hero area end -->
+		<!-- portfolio section start -->
+		<section class="portfolio-area pt-60">
+			<div class="container">
+				<div class="row flexbox-center">
+					<div class="col-lg-6 text-center text-lg-left">
+					    <div class="section-title ">
+							<h1><i class="icofont icofont-movie"></i> Spotlight This Month</h1>
+						</div>
+					</div>
+					<div class="col-lg-6 text-center text-lg-right">
+					    <div class="portfolio-menu">
+							<ul>
+								<li data-filter="*" class="active">Latest</li>
+								<li data-filter=".soon">Comming Soon</li>
+								<!-- <li data-filter=".soon">Comming Soon</li>
+								<li data-filter=".top">Top Rated</li>
+								<li data-filter=".released">Recently Released</li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<hr />
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="row portfolio-item">
+							{% for movies in movies.object_list %}
+							<div class="col-md-4 col-sm-6 soon">
+								<!-- to add filter change soon .... -->
+								<div class="single-portfolio">
+									<div class="single-portfolio-img">
+										<img src="{{movies.image.url}}" alt="portfolio" />
+										<a href="{{ movies.trailer }}" class="popup-youtube">
+											<i class="icofont icofont-ui-play"></i>
+										</a>
+									</div>
+									<div class="portfolio-content">
+										<a href="{% url 'MovieDetails' movies.slug  %}"><h2>{{movies.name}}</h2></a>
+										<div class="review">
+											<div class="author-review">
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+												<i class="icofont icofont-star"></i>
+											</div>
+											<h4>180k voters</h4>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section><!-- portfolio section end -->
+		<!-- news section start -->
+		<section class="news">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+					    <div class="section-title pb-20">
+							<h1><i class="icofont icofont-coffee-cup"></i> Latest News</h1>
+						</div>
+					</div>
+				</div>
+				<hr />
+			</div>
+			<div class="news-slide-area">
+				<div class="news-slider">
+					{% for news in review %}
+					<div class="single-news">
+						<div class="news-bg-1"></div>
+						<div class="news-date">
+							<i class="icofont icofont-quote-left" ></i>
+						</div>
+						<div class="news-content">
+							<h2>{{ news.movie }}</h2>
+							<p>{{ news.review }}.</p>
+						</div>
+						<a href="#">Read More</a>
+					</div>
+					{% endfor %}
+<!--					<div class="single-news">-->
+<!--						<div class="news-bg-2"></div>-->
+
+<!--						<div class="news-date">-->
+<!--							<i class="icofont icofont-quote-left" ></i>-->
+<!--						</div>-->
+<!--						<div class="news-content">-->
+<!--							<h2>news2</h2>-->
+<!--							<p>Witch Queen is a tall woman with a slim build. She has pink hair, which is pulled up under her hat, and teal eyes.</p>-->
+<!--						</div>-->
+<!--						<a href="#">Read More</a>-->
+<!--					</div>-->
+					
+				</div>
+				<div class="news-thumb">
+					<div class="news-next">
+						<div class="single-news">
+							<div class="news-date">
+							<i class="icofont icofont-quote-left" ></i>
+						</div>
+							<div class="news-content">
+								<h2>Next News</h2>
+								<p>For New movies and responeses</p>
+							</div>
+							<a href="#">Read More</a>
+						</div>
+					</div>
+					<div class="news-prev">
+						<div class="single-news">
+							<div class="news-bg-2"></div>
+							<div class="news-date">
+							<i class="icofont icofont-quote-left" ></i>
+						</div>
+							<div class="news-content">
+								<h2>Next Movie News</h2>
+								<p>For New movies and responeses</p>
+							</div>
+							<a href="#">Read More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+{% endblock %}

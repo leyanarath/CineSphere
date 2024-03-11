@@ -1,0 +1,131 @@
+
+
+{% load static %}
+<!-- Page loader -->
+
+{% if messages %}
+<script>
+                {% for message in messages %}
+					window.onload = function() {
+				var errorMessage = "{{ message }}";
+				 if (errorMessage) {
+					// Create alert box
+					var alertBox = document.createElement("div");
+					alertBox.classList.add("alert");
+
+					// Create close button
+					var closeButton = document.createElement("span");
+					closeButton.classList.add("close");
+					closeButton.innerHTML = "&times;"; // Unicode for "times" symbol
+
+					// Append close button to alert box
+					alertBox.appendChild(closeButton);
+
+					// Create text node for error message and append to alert box
+					alertBox.appendChild(document.createTextNode(errorMessage));
+
+					// Append alert box to the body
+					document.body.appendChild(alertBox);
+
+					// Close the alert box when close button is clicked
+					closeButton.onclick = function() {
+						document.body.removeChild(alertBox);
+					};
+				}
+
+        };
+                {% endfor %}
+</script>
+{% endif %}
+
+<!--	 <script>-->
+<!--        window.onload = function() {-->
+<!--            var errorMessage = "{{ error_message }}";-->
+<!--            if (errorMessage) {-->
+<!--                alert(errorMessage);-->
+<!--            }-->
+<!--        };-->
+<!--    </script>-->
+	    <div id="preloader"></div>
+		<!-- header section start -->
+		<header class="header">
+			<div class="container">
+				<div class="header-area">
+					<div class="logo">
+						<a href="index-2.html"><img src="{% static 'img/logo2.png' %}" alt="logo" /></a>
+					</div>
+					<div class="header-right">
+<!--							<select>-->
+<!--								<option value="Movies">Movies</option>-->
+<!--								<option value="Movies">Movies</option>-->
+<!--								<option value="Movies">Movies</option>-->
+<!--							</select>-->
+						<form role="search" action="{% url 'search:SearchResult' %}" method="get">
+
+							{% csrf_token %}
+
+							<input type="search" aria-label="Search" name="q" />
+							<button type="submit"><i class="icofont icofont-search"></i></button>
+						</form>
+						<ul>
+
+						</ul>
+					</div>
+					<div class="menu-area">
+						<div class="responsive-menu"></div>
+					    <div class="mainmenu">
+                            <ul id="primary-menu">
+                                <li><a class="active" href="{% url 'MovieList'%}">Home</a></li>
+                                <li><a href="{% url 'MovieUser' %}">My Movies</a></li>
+                                <li><a href="{% url 'user:edit_user' %}">My Account</a></li>
+                                <li><a href="{% url 'review' %}">Reviews</a></li>
+								<li><a href="#">Genre <i class="icofont icofont-simple-down"></i></a>
+									<ul>
+										{% for gen in genre %}
+
+										<li><a href="{{gen.get_url}} ">{{gen.name}}</a></li>
+										{% endfor %}
+									</ul>
+								</li>
+								{% if user.is_authenticated %}
+								<li><a href="{% url 'user:User_logout' %}"  >Logout</a></li>
+								{% else %}
+								<li><a class="login-popup theme-btn" href="#" name="">Login</a></li>
+								{% endif %}
+                            </ul>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="login-area" id="login_error">
+			<div class="login-box">
+				<a href="#"><i class="icofont icofont-close"></i></a>
+				<h2>LOGIN</h2>
+				<form action="{% url 'user:User_login' %}" method="post" >
+					{% csrf_token %}
+					<h6>USERNAME OR EMAIL ADDRESS</h6>
+					<input type="text" name="username"/>
+					<h6>PASSWORD</h6>
+					<input type="password" name="password" />
+					<div class="login-remember">
+						<input type="checkbox" />
+						<span>Remember Me</span>
+					</div>
+					<div class="login-signup">
+						<span><a href ="{% url 'user:User_register' %}">SIGNUP</a></span>
+					</div>
+					<button type="submit" class="theme-btn">LOG IN</button>
+					<span>Or Via Social</span>
+					<div class="login-social">
+						<a href="#"><i class="icofont icofont-social-facebook"></i></a>
+						<a href="#"><i class="icofont icofont-social-twitter"></i></a>
+						<a href="#"><i class="icofont icofont-social-linkedin"></i></a>
+						<a href="#"><i class="icofont icofont-social-google-plus"></i></a>
+						<a href="#"><i class="icofont icofont-camera"></i></a>
+					</div>
+				</form>
+
+			</div>
+		</div>
+		<!-- header section end -->

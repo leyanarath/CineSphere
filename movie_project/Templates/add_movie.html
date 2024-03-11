@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+		<!-- breadcrumb area start -->
+		<section class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="breadcrumb-area-content">
+							<h1>Movie Detalied Page</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!-- breadcrumb area end -->
+		<!-- transformers area start -->
+		<section class="transformers-area">
+			<div class="container">
+				<div class="transformers-content">
+								<h2>Account</h2>
+								<p> follow the eassy steps</p>
+								<div class="details-reply">
+
+								</div>
+				</div>
+                <form  method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+				<div class="transformers-box">
+					<div class="row flexbox-center ">
+						<div class="col-lg-6 text-lg-left text-center">
+<!--							<div class="transformers-content">-->
+<!--								<img src="{% static 'img/signup.jpg' %}" alt="signupimg" />-->
+<!--							</div>-->
+                            <div class="row">
+									<div class="col-lg-8">
+										<div class="select-container">
+											<label>Movie Name</label>
+											{{ form.name }}
+<!--												<input type="text" placeholder="User Name" name="username"/>-->
+<!--											<i class="icofont icofont-ui-user"></i>-->
+										</div>
+									</div>
+							</div>
+							<div class="row">
+									<div class="col-lg-8">
+										<div class="select-container">
+											<label>Movie slug</label>
+											{{ form.slug }}
+
+<!--												<input type="text" placeholder="User Name" name="username"/>-->
+<!--											<i class="icofont icofont-ui-user"></i>-->
+										</div>
+									</div>
+							</div>
+							<div class="row">
+                                <div class="col-lg-8">
+										<div class="select-container">
+											<label>Movie Budget</label>
+											{{ form.budget }}
+<!--												<input type="text" placeholder="User Name" name="username"/>-->
+
+										</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-8">
+										<div class="select-container">
+											<label>Movie Director</label>
+											{{ form.director }}
+<!--												<input type="text" placeholder="User Name" name="username"/>-->
+<!--											<i class="icofont icofont-ui-user"></i>-->
+										</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-8">
+										<div class="select-container">
+											<label>Movie Lenght</label>
+											{{ form.time }}
+<!--												<input type="text" placeholder="User Name" name="username"/>-->
+<!--											<i class="icofont icofont-ui-user"></i>-->
+										</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-8">
+										<div class="select-container">
+											<label>Release Date</label>
+											{{ form.release_date }}
+<!--												<input type="text" placeholder="User Name" name="username"/>-->
+<!--											<i class="icofont icofont-ui-user"></i>-->
+										</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-8">
+										<div class="select-container">
+											<label>Youtube Link</label>
+											{{ form.trailer }}
+<!--												<input type="text" placeholder="User Name" name="username"/>-->
+<!--											<i class="icofont icofont-ui-user"></i>-->
+										</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-8">
+										<div class="select-container">
+											<label>Movie Poster</label>
+											{{ form.image }}
+<!--												<input type="text" placeholder="User Name" name="username"/>-->
+<!--											<i class="icofont icofont-ui-user"></i>-->
+										</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 ">
+									<div class="row">
+										<div class="col-lg-8">
+											<div class="select-container">
+												<label>Actors</label>
+												{{ form.actors }}
+<!--												<input type="text" placeholder="User Name" name="username"/>-->
+<!--												<i class="icofont icofont-ui-user"></i>-->
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-lg-8">
+											<div class="select-container">
+												<label>Language</label>
+												{{ form.language }}
+<!--												<input type="text" placeholder="First Name" name="fname"/>-->
+<!--												<i class="icofont icofont-ui-v-card"></i>-->
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-lg-8">
+											<div class="select-container">
+												<label>Genres</label>
+												{{ form.genres }}
+<!--												<input type="text" placeholder="Email" name="email"/>-->
+<!--												<i class="icofont icofont-envelope"></i>-->
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-lg-8">
+												<div class="select-container">
+													<label>Movie Plot</label>
+													{{ form.plot }}
+		<!--												<input type="text" placeholder="User Name" name="username"/>-->
+		<!--											<i class="icofont icofont-ui-user"></i>-->
+												</div>
+										</div>
+									</div>
+
+									<div class="details-comment">
+									<input class="theme-btn theme-btn2" type="submit" value="AddMovie"/>
+
+									</div>
+<!--									<div class="row">-->
+<!--										<div class="col-lg-12">-->
+<!--											<div class="textarea-container">-->
+<!--												<textarea placeholder="Type Here Message"></textarea>-->
+<!--												<button><i class="icofont icofont-send-mail"></i></button>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+
+
+
+
+<!--							</div>-->
+<!--							</div>-->
+						</div>
+					</div>
+				</div>
+			<script>
+			document.getElementById('id_name').addEventListener('input', function() {
+			var nameField = this.value;
+			var slugValue = nameField.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
+			document.getElementById('id_slug').value = slugValue;
+
+			});
+			</script>
+				</form>
+			</div>
+
+		</section>
+
+{% endblock %}
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Add Movie</h1>-->
+<!--    <form>-->
+<!--        -->
+<!--        <input type="submit" value="submit">-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
